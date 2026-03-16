@@ -18,22 +18,22 @@ print("Najveća gradska potrošnja: ", data_sortedbyconsumption[['Make', 'Model'
 
 data_sortedbymotorsize = data[data['Engine Size (L)'].between(2.5, 3.5)]
 print('Broj vozila kojima je veličina motora između 2.5 i 3.5 L: ', data_sortedbymotorsize.size)
-print('Prosjecna CO2 emisija plinova za aute s odabranom veličinom motora: ', data_sortedbymotorsize['CO2 Emissions (g/km)'].mean())
+print('Prosjecna CO2 emisija: ', data_sortedbymotorsize['CO2 Emissions (g/km)'].mean())
 
 audi_data = data[data['Make'] == 'Audi']
-print('Broj mjerenja koji se odnosi na vozila proizvođača Audi: ', audi_data.size)
+print('Broj mjerenja Audi: ', audi_data.size)
 audi4cylinders = audi_data[audi_data['Cylinders'] == 4]
-print('Prosječna CO2 emisija plinova Audi automobila s 4 cilindra: ', audi4cylinders['CO2 Emissions (g/km)'].mean().__round__(2))
+print('Prosječna CO2 emisija plinova Audi automobila s 4 cilindra: ', audi4cylinders['CO2 Emissions (g/km)'].mean())
 
 data_groupedbycylinders = data.groupby('Cylinders')
 cars_with_even_cylinders = data[data['Cylinders'] % 2 == 0].groupby('Cylinders')
 print('Broj vozila s parnim brojem cilindara: ', cars_with_even_cylinders.size())
-print('Prosječna CO2 emisija s obzirom na broj cilindara', data_groupedbycylinders['CO2 Emissions (g/km)'].mean().__round__(2))
+print('Prosječna CO2 emisija s obzirom na broj cilindara', data_groupedbycylinders['CO2 Emissions (g/km)'].mean())
 
 diesel_cars = data[data['Fuel Type'] == 'D']
 gasoline_cars = data[data['Fuel Type'] == 'X']
-print('Prosječna gradska potrošnja automobila koji koriste dizel: ', diesel_cars['Fuel Consumption City (L/100km)'].mean().__round__(2))
-print('Prosječna gradska potrošnja automobila koji koriste benzin: ', gasoline_cars['Fuel Consumption City (L/100km)'].mean().__round__(2))
+print('Prosječna gradska potrošnja automobila koji koriste dizel: ', diesel_cars['Fuel Consumption City (L/100km)'].mean())
+print('Prosječna gradska potrošnja automobila koji koriste benzin: ', gasoline_cars['Fuel Consumption City (L/100km)'].mean())
 print('Medijalne vrijednosti dizel: ', diesel_cars['Fuel Consumption City (L/100km)'].median())
 print('Medijalne vrijednosti benzin: ', gasoline_cars['Fuel Consumption City (L/100km)'].median())
 
