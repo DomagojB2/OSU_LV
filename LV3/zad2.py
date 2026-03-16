@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv('LV3/data_C02_emission.csv')
 plt.figure()
-plt.hist(data['CO2 Emissions (g/km)'], bins = 30, color = 'cyan')
+plt.hist(data['CO2 Emissions (g/km)'], bins = 30)
 plt.title('Emisija CO2 plinova')
 plt.show()
 
